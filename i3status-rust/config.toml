@@ -1,0 +1,47 @@
+[theme]
+theme = "gruvbox-dark"
+
+[icons]
+icons = "material-nf"
+
+[[block]]
+block = "cpu"
+# icons_format = ""
+format = "[cpu:{$utilization}]"
+
+# [[block]]
+# block = "disk_space"
+# path = "/"
+# info_type = "available"
+# alert_unit = "GB"
+# interval = 20
+# warning = 20.0
+# alert = 10.0
+# format = " $icon root: $available.eng(w:2) "
+
+[[block]]
+block = "memory"
+# icons_format = ""
+format = "[mem:$mem_total_used_percents.eng(w:2)]"
+# format = " $icon  $mem_total_used_percents.eng(w:2) "
+# format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
+
+[[block]]
+block = "net"
+# icons_format = " "
+format = "[down:$speed_down.eng(prefix:K, w:4)]"
+
+[[block]]
+block = "sound"
+driver = "auto"
+step_width = 5
+format = "[vol:$volume]"
+# max_volume = "100%"
+[[block.click]]
+button = "right"
+cmd = "pavucontrol"
+
+[[block]]
+block = "time"
+interval = 5
+format = "[$timestamp.datetime(f:'%A %d %B %R')]"
