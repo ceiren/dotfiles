@@ -1,87 +1,29 @@
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'go',
-  callback = function()
-    vim.opt_local.softtabstop = 4
-    vim.opt_local.expandtab = false
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.tabstop = 4
-  end,
-})
+local indent_opt = {
+  -- values: softtabstop, expandtab, shiftwidth, tabstop
+  tab = { 4, false, 4, 4 },
+  spaces = { 4, false, 4, 4 },
+}
 
-vim.api.nvim_create_autocmd('Filetype', {
-  pattern = 'c',
-  callback = function()
-    vim.opt_local.softtabstop = 4
-    vim.opt_local.expandtab = true
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.tabstop = 4
-  end,
-})
+local tabs = { 'go', 'c' }
+local spaces = { 'python', 'java', 'css', 'scss', 'html', 'json' }
+
+local function set_indent(opt)
+  vim.opt_local.softtabstop = indent_opt[opt][1]
+  vim.opt_local.expandtab = indent_opt[opt][2]
+  vim.opt_local.shiftwidth = indent_opt[opt][3]
+  vim.opt_local.tabstop = indent_opt[opt][4]
+end
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'python',
+  pattern = tabs,
   callback = function()
-    vim.opt_local.softtabstop = 4
-    vim.opt_local.expandtab = true
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.tabstop = 4
+    set_indent("tab")
   end,
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'css',
+  pattern = spaces,
   callback = function()
-    vim.opt_local.softtabstop = 4
-    vim.opt_local.expandtab = true
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.tabstop = 4
-  end,
-})
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'scss',
-  callback = function()
-    vim.opt_local.softtabstop = 4
-    vim.opt_local.expandtab = true
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.tabstop = 4
-  end,
-})
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'html',
-  callback = function()
-    vim.opt_local.softtabstop = 4
-    vim.opt_local.expandtab = true
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.tabstop = 4
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'json',
-  callback = function()
-    vim.opt_local.softtabstop = 4
-    vim.opt_local.expandtab = true
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.tabstop = 4
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'lua',
-  callback = function()
-    vim.opt_local.softtabstop = 4
-    vim.opt_local.expandtab = true
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.tabstop = 4
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'java',
-  callback = function()
-    vim.opt_local.softtabstop = 4
-    vim.opt_local.expandtab = true
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.tabstop = 4
+    set_indent("spaces")
   end,
 })

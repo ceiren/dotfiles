@@ -60,7 +60,7 @@ vim.keymap.set({ 'n', 't' }, '<A-v>',
 -- for more information, read the "Lua Jfind Interface" section
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
-
+--
 -- Move to previous/next
 map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)

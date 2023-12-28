@@ -179,6 +179,7 @@ vim.o.breakindent = true
 
 -- Save undo history
 vim.o.undofile = true
+vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 
 -- Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
@@ -203,10 +204,7 @@ vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.backup = false
 
--- Save undo history
-vim.o.undofile = true
 
-vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 
 vim.opt.list = true
 vim.opt.hlsearch = false
@@ -389,9 +387,6 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
-  -- if client.name == "gopls" then
-  --   client.server_capabilities.document_formatting = false
-  -- end
 end
 
 -- Enable the following language servers
