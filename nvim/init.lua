@@ -22,7 +22,6 @@ vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 vim.keymap.set('n', '<leader>o', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- [[ SETTINGS ]]
-
 vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
 vim.opt.listchars:append "tab:» "
@@ -130,6 +129,13 @@ require("lazy").setup({
     'tpope/vim-commentary',
     "NvChad/nvterm",
     {
+      "L3MON4D3/LuaSnip",
+      -- follow latest release.
+      version = "v2.1.1", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+      -- install jsregexp (optional!).
+      -- build = "make install_jsregexp"
+    },
+    {
         "williamboman/mason.nvim",
         build = ":MasonUpdate" -- :MasonUpdate updates registry contents
     },
@@ -137,6 +143,11 @@ require("lazy").setup({
         'sychen52/smart-term-esc.nvim',
         config = function()
         end
+    },
+    {
+      "folke/trouble.nvim",
+      -- dependencies = { "nvim-tree/nvim-web-devicons" },
+      opts = { },
     },
     { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
     { 'nvim-treesitter/nvim-treesitter', dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects', },
