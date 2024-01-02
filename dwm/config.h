@@ -2,7 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const Gap default_gap        = {.isgap = 1, .realgap = 1, .gappx = 5};
+static const Gap default_gap        = {.isgap = 1, .realgap = 5, .gappx = 5};
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -50,6 +50,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
+#define ALT Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -64,6 +65,9 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *betterlockscreen[]  = { "betterlockscreen", "-l", "dim"};
+static const char *soundctladd[]  =    { "/home/anon/Programming/bash-scripts/soundctl", "5", "+"};
+static const char *soundctlminus[]  =  { "/home/anon/Programming/bash-scripts/soundctl", "5", "-"};
+static const char *soundctltoggle[]  = { "/home/anon/Programming/bash-scripts/soundctl", "0"};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -88,6 +92,7 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
@@ -111,6 +116,9 @@ static const Key keys[] = {
 	
 	/* edit starts here */ 
 	{ MODKEY|ShiftMask,             XK_x,      spawn,          {.v = betterlockscreen } },
+	{ ALT,                          XK_equal,      spawn,          {.v = soundctladd    } },
+	{ ALT,                          XK_minus,      spawn,          {.v = soundctlminus  } },
+	{ ALT|ShiftMask,                XK_equal,      spawn,          {.v = soundctltoggle } },
 };
 
 /* button definitions */
