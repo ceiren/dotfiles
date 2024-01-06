@@ -3,7 +3,7 @@
 [global]
     ### Display ###
 
-    frame_color = "#e78a4e"
+    frame_color = "#72181a"
     separator_color= frame
     # Which monitor should the notifications be displayed on.
     monitor = 0
@@ -94,7 +94,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
     # frame_color = "#aaaaaa"
@@ -125,7 +125,7 @@
 
     ### Text ###
 
-    font = IosevkaTerm Nerd Font 10
+    font = Iosevka Custom 10
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -313,17 +313,16 @@
 # [global]
 
 [urgency_low]
-    background = "#282828"
-    foreground = "#d4be98"
+    background = "#0a1017"
+    foreground = "#de7e6a"
 
 [urgency_normal]
-    background = "#282828"
-    foreground = "#d4be98"
+    background = "#0a1017"
+    foreground = "#de7e6a"
 
 [urgency_critical]
-    background = "#1E1E2E"
-    foreground = "#CDD6F4"
-    frame_color = "#ea6962"
+    background = "#0a1017"
+    foreground = "#de7e6a"
 
 # [urgency_low]
 #     # IMPORTANT: colors have to be defined in quotation marks.
