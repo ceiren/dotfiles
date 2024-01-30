@@ -70,9 +70,9 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_fg, "-sb", col_red, "-sf", col_fg_2, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *betterlockscreen[]  = { "betterlockscreen", "-l", "dim"};
-static const char *soundctladd[]  =    { "/home/anon/Programming/bash-scripts/soundctl", "5", "+"};
-static const char *soundctlminus[]  =  { "/home/anon/Programming/bash-scripts/soundctl", "5", "-"};
-static const char *soundctltoggle[]  = { "/home/anon/Programming/bash-scripts/soundctl", "0"};
+static const char *soundctladd[]  =    { "/home/anon/Programming/scripts/soundctl", "5", "+"};
+static const char *soundctlminus[]  =  { "/home/anon/Programming/scripts/soundctl", "5", "-"};
+static const char *soundctltoggle[]  = { "/home/anon/Programming/scripts/soundctl", "0"};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
